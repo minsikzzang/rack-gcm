@@ -1,0 +1,7 @@
+source "https://rubygems.org"
+
+gem 'rack-gcm', require: 'rack/gcm', path: File.join(__FILE__, "../..")
+
+gem 'sinatra'
+gem 'pg'
+gem 'thin'
