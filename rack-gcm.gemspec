@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rack/gcm'
+require 'rack/gcm/version'
 
 Gem::Specification.new do |s|
   s.name        = "rack-gcm"
   s.authors     = ["Min Kim"]
   s.email       = ["minsikzzang@gmail.com", "minsik.kim@livestation.com"]
-  s.homepage    = "http://github.com/minsikzzang/sanjose"
+  s.homepage    = "https://github.com/minsikzzang/rack-gcm"
   s.version     = Rack::GCM::VERSION
   s.platform    = Gem::Platform::RUBY
   s.summary     = "REST API Rack for Google cloud message token registration"
