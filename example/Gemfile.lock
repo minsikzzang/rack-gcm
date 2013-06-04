@@ -1,7 +1,8 @@
 PATH
   remote: /livestation/code/rack-gcm
   specs:
-    rack-gcm (0.1.3)
+    rack-gcm (0.0.2)
+      dotenv (~> 0.7.0)
       rack (~> 1.4)
       rack-contrib (~> 1.1)
       sequel (~> 3.37)
@@ -12,6 +13,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     daemons (1.1.9)
+    dotenv (0.7.0)
     eventmachine (1.0.3)
     pg (0.15.1)
     rack (1.5.2)

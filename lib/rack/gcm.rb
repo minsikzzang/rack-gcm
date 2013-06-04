@@ -1,3 +1,5 @@
+require 'dotenv'
+
 require 'rack'
 require 'rack/contrib'
 
@@ -16,10 +18,13 @@ module Rack
     autoload :Device, 'rack/gcm/models/device'
 
     configure do
+      Dotenv.load
+      puts "DATABASE_URL=#{ENV['DATABASE_URL']}"
       if ENV['DATABASE_URL']
         Sequel.extension :pg_array, :migration
 
         DB = Sequel.connect(ENV['DATABASE_URL'])
+        DB.sql_log_level = :debug
         DB.extend Sequel::Postgres::PGArray::DatabaseMethods
         Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), 'gcm/migrations'), table: 'gcm_schema_info')
       end

@@ -5,12 +5,12 @@ module Rack
     plugin :timestamps, force: true, update_on_create: true
     plugin :schema
 
-    self.dataset = :push_notification_devices
+    self.dataset = :gcm_devices
     self.strict_param_setting = false
     self.raise_on_save_failure = false
 
     def before_validation
-      # normalize_token!
+      normalize_token!
     end
 
     def validate
@@ -18,7 +18,7 @@ module Rack
 
       validates_presence :token
       validates_unique :token
-      # validates_format /[[:xdigit:]]{40}/, :token
+      validates_format /[[:xdigit:]]/, :token
     end
 
     private
